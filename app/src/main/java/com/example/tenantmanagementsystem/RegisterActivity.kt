@@ -1,6 +1,6 @@
 package com.example.tenantmanagementsystem
 
-
+import android.util.Log
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -13,6 +13,8 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.d("Lifecycle", "RegisterActivity: onCreate")
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -57,5 +59,30 @@ class RegisterActivity : AppCompatActivity() {
         binding.loginLinkTextView.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Lifecycle", "RegisterActivity: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "RegisterActivity: onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "RegisterActivity: onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Lifecycle", "RegisterActivity: onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "RegisterActivity: onDestroy")
     }
 }

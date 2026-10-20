@@ -1,5 +1,6 @@
 package com.example.tenantmanagementsystem
 
+import android.util.Log
 import android.net.Uri
 import android.content.Intent
 import android.net.Uri.parse
@@ -14,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("Lifecycle", "LoginActivity: onCreate")
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -62,5 +64,48 @@ class LoginActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+
+        binding.helpTextView.setOnClickListener {
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                parse("https://www.strathmore.edu")
+            )
+
+            startActivity(intent)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Lifecycle", "LoginActivity: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "LoginActivity: onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "LoginActivity: onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Lifecycle", "LoginActivity: onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "LoginActivity: onDestroy")
     }
 }
+
+
+
+
+
+
+
+
